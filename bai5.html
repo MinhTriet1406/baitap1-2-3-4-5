@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính mini</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eee;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            width: 300px;
+            margin: 70px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        input {
+            padding: 10px;
+            width: 85%;
+            margin: 8px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #ketqua {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>MÁY TÍNH MINI</h2>
+
+    <input type="number" id="a" placeholder="Nhập số thứ nhất">
+    <input type="number" id="b" placeholder="Nhập số thứ hai">
+
+    <br>
+
+    <button onclick="tinh('+')">+</button>
+    <button onclick="tinh('-')">-</button>
+    <button onclick="tinh('*')">×</button>
+    <button onclick="tinh('/')">÷</button>
+
+    <h3>Kết quả:</h3>
+    <p id="ketqua">0</p>
+</div>
+
+<script>
+    function tinh(phepTinh) {
+        let a = Number(document.getElementById("a").value);
+        let b = Number(document.getElementById("b").value);
+        let kq;
+
+        if (phepTinh == "+") {
+            kq = a + b;
+        }
+        else if (phepTinh == "-") {
+            kq = a - b;
+        }
+        else if (phepTinh == "*") {
+            kq = a * b;
+        }
+        else {
+            if (b == 0) {
+                document.getElementById("ketqua").innerHTML =
+                    "Không thể chia cho 0";
+                return;
+            }
+            kq = a / b;
+        }
+
+        document.getElementById("ketqua").innerHTML = kq;
+    }
+</script>
+
+</body>
+</html>
